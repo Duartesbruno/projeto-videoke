@@ -4,6 +4,9 @@ import MusicTable from "./components/MusicTable";
 import SearchBar from "./components/SearchBar";
 import Pagination from "./components/Pagination";
 
+import logoVideoke from "./assets/logo-ivideoke.png";
+import logoPM from "./assets/pm-logo.png";
+
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +17,7 @@ function App() {
 
 
   async function loadData() {
-    const result = await readExcel("/public/videoke-musicas.xls");
+    const result = await readExcel("/videoke-musicas.xls");
     setData(result);
     setLoading(false);
   }
@@ -61,7 +64,7 @@ function App() {
   return (
     <div className="container">
       <div className="header">
-        <img src="/src/assets/logo-ivideoke.png" alt="Logo Videoke" className="logo" />
+        <img src={logoVideoke} alt="Logo Videoke" className="logo" />
         <h1>Catálogo de Músicas</h1>
         <p className="total">
           🎵 {data.length} músicas disponíveis
@@ -82,7 +85,7 @@ function App() {
       )}
       <div className="footer">
         <a href="https://www.instagram.com/pro_multimidia" target="_blank" rel="noopener noreferrer">
-          <img src="/src/assets/pm-logo.png" alt="Logo PRO Multimídia" className="pm-logo" />
+          <img src={logoPM} alt="Logo PRO Multimídia" className="pm-logo" />
         </a>
       </div>
     </div>
