@@ -17,7 +17,7 @@ function App() {
 
 
   async function loadData() {
-    const result = await readExcel("/videoke-musicas.xls");
+    const result = await readExcel("data/videoke-musicas.xls");
     setData(result);
     setLoading(false);
   }
