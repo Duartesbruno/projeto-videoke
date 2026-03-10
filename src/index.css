@@ -36,17 +36,20 @@ h1 {
 }
 
 .empty {
-  text-align: center;
   padding: 30px;
+  font-size: 20px;
+  text-align: center;
   color: #666;
   font-weight: bold;
 }
 
 .footer-table {
-  margin-top: 4px;
+  margin-top: 8px;
   text-align: center;
   font-size: 12px;
   color: #666;
+  border-top: 1px solid #66666626;
+  padding-top: 8px;
 }
 
 .footer {

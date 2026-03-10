@@ -61,6 +61,8 @@ function App() {
     setCurrentPage(1);
   };
 
+  const hasPagination = totalPages > 1;
+
   return (
     <div className="container">
       <div className="header">
@@ -71,12 +73,14 @@ function App() {
         </p>
       </div>
       <SearchBar value={search} onChange={handleSearch} />
-      <p className="scroll-hint">⬇️ Deslize para ver mais ➡️</p>
+      {hasPagination && (
+        <p className="scroll-hint">⬇️ Deslize para ver mais ➡️</p>
+      )}
       <MusicTable data={paginatedData} loading={loading} />
       <div className="footer-table">
         <span className="footer-table">Bruno Duarte - PRO Multimídia ©</span>
       </div>
-      {totalPages > 1 && (
+      {hasPagination && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
