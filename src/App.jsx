@@ -71,7 +71,7 @@ function App() {
         </p>
       </div>
       <SearchBar value={search} onChange={handleSearch} />
-      <p className="scroll-hint"> ⬅️ Deslize para ver mais ➡️</p>
+      <p className="scroll-hint"> 🢃 Deslize para ver mais 🢂</p>
       <MusicTable data={paginatedData} loading={loading} />
       <div className="footer-table">
         <span className="footer-table">Bruno Duarte - PRO Multimídia ©</span>
