@@ -78,7 +78,7 @@ function App() {
       )}
       <MusicTable data={paginatedData} loading={loading} />
       <div className="footer-table">
-        <span className="footer-table">Bruno Duarte - PRO Multimídia ©</span>
+        <span>Bruno Duarte - PRO Multimídia ©</span>
       </div>
       {hasPagination && (
         <Pagination
