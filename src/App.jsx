@@ -67,7 +67,7 @@ function App() {
     <div className="container">
       <div className="header">
         <img src={logoVideoke} alt="Logo Videoke" className="logo" />
-        <h1>Catálogo de Músicas</h1>
+        <h1>Lista de Músicas</h1>
         <p className="total">
           🎵 {data.length} músicas disponíveis
         </p>
