@@ -62,7 +62,8 @@ function App() {
   };
 
   const hasPagination = totalPages > 1;
-
+  console.log("Dados carregados:", data.length, "músicas");
+console.log(paginatedData.length, "músicas na página atual"); 
   return (
     <div className="container">
       <div className="header">
@@ -73,7 +74,7 @@ function App() {
         </p>
       </div>
       <SearchBar value={search} onChange={handleSearch} />
-      {hasPagination && (
+      {paginatedData.length > 0 && (
         <p className="scroll-hint">⬇️ Deslize para ver mais ➡️</p>
       )}
       <MusicTable data={paginatedData} loading={loading} />
