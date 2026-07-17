@@ -9,7 +9,7 @@ import logoVideoke from "./assets/logo-ivideoke.png";
 import logoPM from "./assets/pm-logo.png";
 import logoWhatsApp from "./assets/logo-whatsapp.png"
 import logoInstagram from "./assets/logo-instagram.png"
-import logoFacebook from "./assets/logo-Facebook.png"
+import logoFacebook from "./assets/logo-facebook.png"
 
 function App() {
   const [data, setData] = useState([]);
