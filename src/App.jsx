@@ -1,11 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { readExcel } from "./utils/excelReader";
+import { normalizeText } from "./utils/normalizeText";
 import MusicTable from "./components/MusicTable";
 import SearchBar from "./components/SearchBar";
 import Pagination from "./components/Pagination";
 
 import logoVideoke from "./assets/logo-ivideoke.png";
 import logoPM from "./assets/pm-logo.png";
+import logoWhatsApp from "./assets/logo-whatsapp.png"
+import logoInstagram from "./assets/logo-instagram.png"
+import logoFacebook from "./assets/logo-Facebook.png"
 
 function App() {
   const [data, setData] = useState([]);
@@ -29,14 +33,14 @@ function App() {
 
 // filtro de busca
   const filteredData = useMemo(() => {
-    if (!search) return data;
+    const normalizedSearch = normalizeText(search);
 
-    return data.filter((row) =>
-      Object.values(row)
-        .join(" ")
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    );
+    if (!normalizedSearch) return data;
+
+    return data.filter((row) => {
+      const rowText = Object.values(row).join(" ");
+      return normalizeText(rowText).includes(normalizedSearch);
+    });
   }, [search, data]);
 
   useEffect(() => {
@@ -69,16 +73,17 @@ function App() {
         <img src={logoVideoke} alt="Logo Videoke" className="logo" />
         <h1>Lista de Músicas</h1>
         <p className="total">
-          🎵 {data.length} músicas disponíveis
+          🎵 {search
+            ? `${filteredData.length} música${filteredData.length === 1 ? "" : "s"} encontrada${filteredData.length === 1 ? "" : "s"}`
+            : `${data.length} músicas disponíveis`}
         </p>
       </div>
-      <SearchBar value={search} onChange={handleSearch} />
-      {paginatedData.length > 0 && (
-        <p className="scroll-hint">⬇️ Deslize para ver mais ➡️</p>
-      )}
-      <MusicTable data={paginatedData} loading={loading} />
-      <div className="footer-table">
-        <span>Bruno Duarte - PRO Multimídia ©</span>
+      <div className="results-container">
+        <SearchBar value={search} onChange={handleSearch} />
+        {paginatedData.length > 0 && (
+          <p className="scroll-hint">⬇️ Deslize para ver mais ➡️</p>
+        )}
+        <MusicTable data={paginatedData} loading={loading} />
       </div>
       {hasPagination && (
         <Pagination
@@ -91,6 +96,22 @@ function App() {
         <a href="https://www.instagram.com/pro_multimidia" target="_blank" rel="noopener noreferrer">
           <img src={logoPM} alt="Logo PRO Multimídia" className="pm-logo" />
         </a>
+        <section className="footer-contact">
+          <div className="social-media">
+            <a href="https://api.whatsapp.com/send/?phone=5551985331004&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+              <img src={logoWhatsApp} alt="WhatsApp" />
+            </a>
+            <a href="https://www.instagram.com/pro_multimidia" target="_blank" rel="noopener noreferrer">
+              <img src={logoInstagram} alt="Instagram" />
+            </a>
+            <a href="https://www.facebook.com/pro.multimidia.karaoke" target="_blank" rel="noopener noreferrer">
+              <img src={logoFacebook} alt="Facebook" />
+            </a>
+          </div>
+        </section>
+        <small className="footer-copy">
+          © {new Date().getFullYear()} PRO Multimídia • Desenvolvido por Bruno Duarte
+        </small>
       </div>
     </div>
   );

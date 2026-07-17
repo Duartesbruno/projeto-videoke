@@ -35,6 +35,12 @@ h1 {
   margin: 10px 0 20px;
 }
 
+.results-container {
+  margin-bottom: 8px;
+  border-bottom: 1px solid #66666626;
+  padding-bottom: 14px;
+}
+
 .empty {
   padding: 30px;
   font-size: 20px;
@@ -43,27 +49,30 @@ h1 {
   font-weight: bold;
 }
 
-.footer-table {
-  margin-top: 8px;
-  text-align: center;
-  border-top: 1px solid #66666626;
-  padding-top: 8px;
-}
-
-.footer-table span {
-  font-size: 12px;
-  color: #666;
-}
-
 .footer {
   margin-top: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 16px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #666;
 }
 
 .pm-logo {
   width: 60px;
+}
+
+.social-media {
+  display: flex;
+  column-gap: 12px;
+}
+
+.social-media img {
+  width: 30px;
 }
 
 /* SEARCH */
@@ -143,7 +152,7 @@ tbody tr:hover {
 /* PAGINATION */
 
 .pagination {
-  margin-top: 30px;
+  margin-top: 24px;
   display: flex;
   justify-content: center;
   gap: 6px;
