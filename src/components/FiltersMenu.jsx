@@ -21,6 +21,7 @@ const genreOptions = [
     ["reggae", "Reggae"],
     ["religiosa", "Religiosa"],
     ["rock", "Rock"],
+    ["rock gaúcho", "Rock Gaúcho"],
     ["samba", "Samba"],
     ["sertanejo", "Sertanejo"],
 ];
