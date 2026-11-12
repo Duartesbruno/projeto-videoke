@@ -398,7 +398,8 @@ tbody tr:hover {
 
 .filtersMenu-actions .clearFilters {
   border: none;
-  background: #fff;
+  background-color: #fff;
+  color: #000;
   padding: 8px 10px;
   cursor: pointer;
 }
