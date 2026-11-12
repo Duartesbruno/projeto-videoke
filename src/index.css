@@ -228,10 +228,6 @@ tbody tr:hover {
   transition: 0.2s;
 }
 
-.pagination button:hover:not(:disabled) {
-  background: #f1f3f5;
-}
-
 .pagination button.active {
   background: #111;
   color: white;
@@ -423,10 +419,14 @@ tbody tr:hover {
   color: #000;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1026px) {
   .filter-option:hover {
     border-color: #111;
     background: #111;
     color: #fff;
+  }
+
+  .pagination button:hover:not(:disabled) {
+    background: #f1f3f5;
   }
 }
